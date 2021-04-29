@@ -44,7 +44,7 @@ phases:
    commands:
      - echo Build started on `date`
      - echo Installing composer deps
-     - composer install ----ignore-platform-reqs
+     - composer install --ignore-platform-reqs
 
  post_build:
    commands:
