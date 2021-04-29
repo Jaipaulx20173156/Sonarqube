@@ -53,8 +53,8 @@ phases:
      #- composer install --ignore-platform-reqs
 
  post_build:
-   commands:
-    - echo Build completed on `date`
+   #commands:
+    #- echo Build completed on `date`
     artifacts:
 files:
 - '**/*' 
