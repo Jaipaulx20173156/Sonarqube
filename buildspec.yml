@@ -26,25 +26,30 @@ phases:
                   php-xdebug \
                   php7.3-curl \
                   unzip
-         #Enable xdebug - phpunit uses this for code coverage
-         phpenmod xdebug
+         # Enable xdebug - phpunit uses this for code coverage
+         # phpenmod xdebug
          #Install composer
-         php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
-         php composer-setup.php ;
-         php -r "unlink('composer-setup.php');" ;
-         mv composer.phar /usr/local/bin/composer
+         #php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+         #php composer-setup.php ;
+         #php -r "unlink('composer-setup.php');" ;
+         #mv composer.phar /usr/local/bin/composer
          #Various handy node based dev tools - do you need these during your build? Comment if not.
          #npm install -g gulp
          #npm install -g grunt
          #npm install -g webpack
+             # - curl https://sonarcloud.io/api/qualitygates/project_status?projectKey=$Project >result.3-xml
+             - curl https://sonarcloud.io/project/issues?id=Jaipaulx20173156_sonarqube&resolved=false&types=BUG
+
+      # cat result.3-xml
+      # if [ $(jq -r '.projectStatus.status' result..3-xml) = ERROR ] ; then $CODEBUILD_BUILD_SUCCEEDING -eq 0 ;fi
      # Start Mysql if you need it
      # - apt-get install -y mysql-server
      # - su mysql -s /bin/bash -c "/usr/sbin/mysqld" &
  build:
    commands:
-     - echo Build started on `date`
-     - echo Installing composer deps
-     - composer install --ignore-platform-reqs
+     #- echo Build started on `date`
+     #- echo Installing composer deps
+     #- composer install --ignore-platform-reqs
 
  post_build:
    commands:
