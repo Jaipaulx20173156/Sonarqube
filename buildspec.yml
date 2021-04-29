@@ -48,16 +48,20 @@ phases:
  build:
    commands:
     - curl https://sonarcloud.io/project/issues?id=Jaipaulx20173156_sonarqube&resolved=false&types=BUG
+      - echo Building...
+artifacts:
+  files:
+    - '**/*'
     #- echo Build started on `date`
      #- echo Installing composer deps
      #- composer install --ignore-platform-reqs
 
  post_build:
-   #commands:
-    #- echo Build completed on `date`
-    artifacts:
-files:
-- '**/*' 
+   commands:
+    - echo Build completed on `date`
+   # artifacts:
+#files:
+#- '**/*' 
     
      # Do you need to do this? In many cases phpunit will use sqllite or similar to avoid the need for a real DB.
      # If you don't need it delete it
