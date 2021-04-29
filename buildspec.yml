@@ -38,7 +38,7 @@ phases:
          #npm install -g grunt
          #npm install -g webpack
              # - curl https://sonarcloud.io/api/qualitygates/project_status?projectKey=$Project >result.3-xml
-             - curl https://sonarcloud.io/project/issues?id=Jaipaulx20173156_sonarqube&resolved=false&types=BUG
+             #- curl https://sonarcloud.io/project/issues?id=Jaipaulx20173156_sonarqube&resolved=false&types=BUG
 
       # cat result.3-xml
       # if [ $(jq -r '.projectStatus.status' result..3-xml) = ERROR ] ; then $CODEBUILD_BUILD_SUCCEEDING -eq 0 ;fi
@@ -47,13 +47,17 @@ phases:
      # - su mysql -s /bin/bash -c "/usr/sbin/mysqld" &
  build:
    commands:
-     #- echo Build started on `date`
+    - curl https://sonarcloud.io/project/issues?id=Jaipaulx20173156_sonarqube&resolved=false&types=BUG
+    #- echo Build started on `date`
      #- echo Installing composer deps
      #- composer install --ignore-platform-reqs
 
  post_build:
-   commands:
-  #   - echo Build completed on `date`
+   #commands:
+    artifacts:
+files:
+'**/*'
+     #- echo Build completed on `date`
      # Do you need to do this? In many cases phpunit will use sqllite or similar to avoid the need for a real DB.
      # If you don't need it delete it
      # - /usr/bin/mysql  -u root -e "GRANT ALL ON *.* TO 'test'@'localhost' IDENTIFIED BY '' WITH GRANT OPTION"
