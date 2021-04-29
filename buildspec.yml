@@ -56,7 +56,7 @@ phases:
    #commands:
     artifacts:
 files:
-'**/*'
+#'**/*' 
      #- echo Build completed on `date`
      # Do you need to do this? In many cases phpunit will use sqllite or similar to avoid the need for a real DB.
      # If you don't need it delete it
