@@ -14,7 +14,7 @@
  
 <div class="home-body">
     <div class="intro">
-        <h2 class="welcome">Welcome to Conultly!</h2>
+        <h2 class="welcome">Welcome to Conusltly!</h2>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptates, at! Aliquam a eaque sapiente ratione illum inventore minus eveniet. Asperiores!</p>
         <?php if(!isset($_SESSION['userDetails'])){ ?>
             <button class="signup">
